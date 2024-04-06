@@ -79,5 +79,5 @@ function cursorAnime() {
     })
 }
 
-cursorAnime();
+cursorAnime()
 loadingAnimation();
