@@ -4,24 +4,31 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
     font-family: "Plain-Light";
     color: white;
 }
 
 html , body {
-    height: 100%;
-    width: 100%;
-    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
     letter-spacing: -.015rem;
 }
 
+html::-webkit-scrollbar {
+    width: 0px;
+}
+
 #crsr {
-    height: 5.5vw;
-    width: 5.5vw;
-    border: 1.5px solid #e0e0e0f2;
+    top: -50%;
+    font-size: 1vw;
+    height: 3.5vw;
+    width: 3.5vw;
+    border: 1px solid #f0efef;
     color: #fff;
     border-radius: 50%;
-    z-index: 9999;
+    z-index: 99;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,6 +37,7 @@ html , body {
     mix-blend-mode: difference;
     position: absolute;
     cursor: pointer;
+    pointer-events: none;
 }
 
 #loader
@@ -42,25 +50,49 @@ html , body {
     padding: 25vh 10vh;
     cursor: none;
     z-index: 99999;
-}
-.line {
-    /* background-color: aqua; */
-    height: fit-content;
     overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    line-height: 1.1;
-    gap: 3vw;
-    text-align: right;
 }
 
-#line1-part1 {
+
+.line {
+    /* background-color: red; */
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    line-height: 1.1;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    gap: 3vw;
+}
+
+/* #line1-part1 {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1.1vw;
+} */
+#line1-part1 {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    gap: 1vw;
+
 }
+
 
 #line1-part1 h5 , #line1-part1 h6 {
     font-size: 3.5vw;
@@ -143,8 +175,11 @@ html , body {
 
 #page1 {
     height: 100vh;
-    width: 100%;
+    width: 100vw;
     background-color: #101112;
+    cursor: none;
+    overflow: hidden;
+    overflow-y: hidden;
 }
 
 #page1 #nav {
@@ -152,7 +187,6 @@ html , body {
     align-items: center;
     justify-content: space-between;
     height: 3vh;
-    /* background-color: blue; */
     width: 100vw;
     padding: 3.8vw 3.9vw;
 }
@@ -168,37 +202,306 @@ html , body {
     height: auto;
 }
 #nav .text {
+    position: absolute;
+    top: 6%;
+    left: 25%;
     font-size: .97vw;
-    margin-left: -41%;
-    margin-top: 5vh;
 }
-img {
-    width: 3vh;
-    height: 3vh;
+#menu {
+    width: 2vh;
+    height: 2vh;
 }
 
-#nav-part2 {
+#frames {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 2.5vw;
-    font-weight: 100;
+    margin-top: -1.3vw;
+    overflow: hidden;
+}
+.frame {
+    position: relative;
+    z-index: 10;
+    height: 2vw;
+    overflow: hidden;
+}
+.frame span
+{
+    height: 3vw;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: baseline;
     font-size: 1vw;
+    font-weight: 100;
+    padding: 0 2vw;
+}
+   .hero {
+    width: 72%;
+    margin-left: 27%;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    overflow-y: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+
+
 }
 
-.hero {
-    /* background-color: burlywood; */
-    line-height: 1;
-    margin-left: 25%;
-    width: 72%;
-    letter-spacing: 0.15vw;
-}
+
+
 .hero:nth-child(2) {
     margin-top: 18vh;
 }
 
 .hero h1 {
-    font-size: 7.3vw;
+    font-size: 7.2vw;
     font-weight: 500;
     text-transform: uppercase;
+    line-height: 7.2vw;
+    position: relative;
+}
+
+/* #hero1::before {
+    content: "01";
+    position: absolute;
+    font-size: 3vw;
+    font-weight: 100;
+    font-family: "silk serif";
+    left: 20%;
+    top: 29%;
+} */
+
+.hero h2 {
+    font-size: 7.2vw;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 7.2vw;
+    border-bottom: 0.5vw solid #fff;
+    /* /* padding-bottom: 0.8vw; */
+    /* transition: all ease 0.3s; */
+
+}
+
+.hero h2:hover {
+    -webkit-text-stroke: 2px #fff;
+    color: transparent;
+    font-weight: 500;
+    border-bottom: 0.5vw solid #ffffff00;
+}
+
+#page2 {
+    /* background-color: red; */
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+#video-container {
+    height: 66vh;
+    width: 71vw;
+    position: relative;
+    left: 28%;
+    /* background-color: red; */
+    background-image: url(https://obys.agency/wp-content/uploads/2022/11/Showreel-2022-preview-1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+#video-container video {
+    height: 100%;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    opacity: 0;
+}
+#video-cursor {
+    background-color: #FFA63D;
+    height: 9vw;
+    width: 9vw;
+    border-radius: 50%;
+    position: absolute;
+    top:-10%;
+    left: 70%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    z-index: 999;
+}
+#video-cursor i {
+    font-size: 3vw;
+}
+
+#page3 {
+    min-height: 100vh;
+    background-color: #030303;
+    width: 100%;
+    position: relative;
+}
+
+#page4 {
+    min-height: 100vh;
+    background-color: #030303;
+    width: 100%;
+}
+
+#page4-content {
+    width: 72vw;
+    position: relative;
+    margin-left: 28%;
+}
+
+#page4-content h1 {
+    font-size: 7.5vw;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+#page4-content h1::before {
+    content: "03";
+    position: absolute;
+    font-size: 3vw;
+    font-weight: 100;
+    font-family: "silk serif";
+    left: -12%;
+    top: 8%;
+}
+
+#page4-content .underline {
+    height: 0.1vw;
+    width: 90%;
+    background-color: #fff;
+    margin: 4vw 0;
+}
+
+#page4-content>p{
+    padding-top:0;
+    font-size: 2.25vw;
+    width: 53%;
+}
+#page4-flex {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+#page4-flex p {
+    position: relative;
+    font-size: 0.92vw;
+    line-height: 1.525;
+    width: 21%;
+    left: -15%;
+    padding-top: 4%;
+}
+
+#page4-flex img {
+    padding-top: 3.2vw;
+    position: relative;
+    width: 54%;
+    left: -16%;
+    padding-left: 4%;
+}
+
+#page4-blue
+{
+    background-color: #407DF4;
+    width: 33vw;
+    padding: 3vw;
+    position: relative;
+    margin-top: -35vh;
+    margin-left: 26vw;
+}
+
+.blue-div-elem {
+    /* background-color: red; used to find the exact demensions of the div*/ 
+    position: relative;
+    display: flex;
+    align-items:flex-start ;
+    justify-content: space-between;
+    gap: 2vw;
+    padding: 3vw 0vw;
+    border-bottom: 0.2vh solid #fff;
+}
+
+.blue-div-elem h4 {
+    font-size: 1.8vw;
+    font-weight: 500;
+}
+
+.blue-div-elem p {
+    white-space: nowrap;
+    width: 80%;
+    font-size: 1vw;
+}
+
+#awwards{
+    height: 5vw;
+    width: 5vw;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    object-fit: cover;
+    position: absolute;
+    scale: 0;
+    opacity: 0;
+}
+
+#FWA{
+    height: 5vw;
+    width: 5vw;
+    clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+    object-fit: cover;
+    position: absolute;
+    transform: translate(-50% ,-50%);
+    opacity: 0;
+    scale: 0;
+}
+
+#cssda{
+    height: 5.5vw;
+    width: 5.5vw;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    object-fit: cover;
+    position: absolute;
+    scale: 0;
+    opacity: 0;
+}
+
+#behance{
+    height: 5vw;
+    width: 5vw;
+    /* border-radius: 50%; */
+    object-fit: cover;
+    clip-path: circle(50% at 50% 50%);
+    position: absolute;
+    scale: 0;
+    opacity: 0;
+}
+/* You always have to keep the position absolute for it to follow the mouse because you have to kee
+it at a certainplace first */
+#thebest{
+    height: 5.5vw;
+    width: 5.5vw;
+    /* border-radius: 50%; */
+    object-fit: cover;
+    position: absolute;
+    scale: 0;
+    opacity: 0;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+}
+
+
+#page5 {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    background-color: #030303;
 }
