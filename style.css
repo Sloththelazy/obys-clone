@@ -1,4 +1,22 @@
+@font-face {
+    font-family: "Plain Light";
+    src: url(./fonts/plain-regular-webfont.ttf);
+}
 
+@font-face {
+    font-family: "Plain Light";
+    src: url(./fonts/plain-light-webfont.ttf);
+}
+
+@font-face {
+    font-family: "silk serif";
+    src: url(./fonts/silkserif-regularitalic-webfont.ttf);
+}
+
+@font-face {
+    font-family: "silk serif";
+    src: url(./fonts/silkserif-lightitalic-webfont.ttf);
+}
 
 * {
     margin: 0px;
@@ -14,6 +32,7 @@ html , body {
     height: 100vh;
     width: 100vw;
     letter-spacing: -.015rem;
+    /* cursor:none; */
 }
 
 html::-webkit-scrollbar {
@@ -28,12 +47,12 @@ html::-webkit-scrollbar {
     border: 1px solid #f0efef;
     color: #fff;
     border-radius: 50%;
-    z-index: 99;
+    z-index: 9;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    transform: translate(-50%,-50%);
+    transform: translate(-48%,-35%);
     mix-blend-mode: difference;
     position: absolute;
     cursor: pointer;
@@ -121,50 +140,83 @@ html::-webkit-scrollbar {
 }
 .line-h2 {
     font-size: 7vw;
+    text-transform: uppercase;
     font-weight: 500;
-    animation-name: anime;
-    opacity: 1;
-    animation-duration: 1.39s;
-    animation-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
-    animation-iteration-count: infinite;
+    opacity: 0;
+    animation-name: loaderAnime;
+    -webkit-animation-duration: 2s;
+            animation-duration: 2s;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
 }
 
-@keyframes anime {
-        0% {
-            font-family: "Plain-Light";
-            -webkit-text-stroke: 1px #fff;
-            color: #fff;
-            font-weight: 500;
-            opacity: 0;
-        }
-        47% {
-            font-family: "Plain-Light";
-            -webkit-text-stroke: 1px #fff;
-            color: #fff;
-            font-weight: 500;
-            opacity: 1;
-        }
-        50% {
-            font-family: "Silk Serif";
-            -webkit-text-stroke: 1px #fff;
-            font-weight: 500;
-            opacity: 0;
-            color: transparent;
-        }
-        75% {
-            font-family: "Silk Serif";
-            -webkit-text-stroke: 1px #fff;
-            font-weight: 500;
-            opacity: 1;
-            color: transparent;
-        }
-        100% {
-            font-family: "Silk Serif";
-            font-weight: 500;
-            -webkit-text-stroke: 1px #fff;
-            opacity: 0;
-            color: transparent;
-        }
+@-webkit-keyframes loaderAnime {
+    0% {
+    font-family: "Plain-Light";
+        -webkit-text-stroke: 0.1vw #fff;
+        color: #fff;
+        font-weight: 500;
+        opacity: 1;
+    }
+
+    48% {
+    font-family: "Plain-Light";
+        -webkit-text-stroke: 0.1vw #fff;
+        color: #fff;
+        font-weight: 500;
+        opacity: 0;
+    }
+
+    50% {
+        font-family: 'silk serif';
+        -webkit-text-stroke: 0.1vw #fff;
+        font-weight: 500;
+        color: transparent;
+        opacity: 1;
+    }
+
+    100% {
+        font-family: 'silk serif';
+        -webkit-text-stroke: 0.1vw #fff;
+        font-weight: 500;
+        color: transparent;
+        opacity: 0;
+    }
+}
+
+@keyframes loaderAnime {
+    0% {
+    font-family: "Plain-Light";
+        -webkit-text-stroke: 0.1vw #fff;
+        color: #fff;
+        font-weight: 500;
+        opacity: 1;
+    }
+
+    48% {
+    font-family: "Plain-Light";
+
+        -webkit-text-stroke: 0.1vw #fff;
+        color: #fff;
+        font-weight: 500;
+        opacity: 0;
+    }
+
+    50% {
+        font-family: 'silk serif';
+        -webkit-text-stroke: 0.1vw #fff;
+        font-weight: 500;
+        color: transparent;
+        opacity: 1;
+    }
+
+    100% {
+        font-family: 'silk serif';
+        -webkit-text-stroke: 0.1vw #fff;
+        font-weight: 500;
+        color: transparent;
+        opacity: 0;
+    }
 }
 
 #main
@@ -177,7 +229,7 @@ html::-webkit-scrollbar {
     height: 100vh;
     width: 100vw;
     background-color: #101112;
-    cursor: none;
+    /* cursor: none; */
     overflow: hidden;
     overflow-y: hidden;
 }
@@ -188,7 +240,7 @@ html::-webkit-scrollbar {
     justify-content: space-between;
     height: 3vh;
     width: 100vw;
-    padding: 3.8vw 3.9vw;
+    padding: 5.8vw 5.9vw;
 }
 
 #nav-part1 {
@@ -267,6 +319,16 @@ html::-webkit-scrollbar {
     line-height: 7.2vw;
     position: relative;
 }
+#hero1::before {
+    content: "01";
+    position: absolute;
+    font-size: 4vw;
+    font-weight: 100;
+    font-family: "silk serif";
+    left: 15%;
+    top: 40%;
+}
+
 
 /* #hero1::before {
     content: "01";
@@ -297,6 +359,7 @@ html::-webkit-scrollbar {
 }
 
 #page2 {
+    padding-top: 14vw;
     /* background-color: red; */
     height: 100vh;
     width: 100%;
@@ -355,6 +418,7 @@ html::-webkit-scrollbar {
     min-height: 100vh;
     background-color: #030303;
     width: 100%;
+    cursor: pointer;
 }
 
 #page4-content {
@@ -375,7 +439,7 @@ html::-webkit-scrollbar {
     font-weight: 100;
     font-family: "silk serif";
     left: -12%;
-    top: 8%;
+    top: 2%;
 }
 
 #page4-content .underline {
@@ -386,7 +450,7 @@ html::-webkit-scrollbar {
 }
 
 #page4-content>p{
-    padding-top:0;
+    padding-top: 7vw;;
     font-size: 2.25vw;
     width: 53%;
 }
@@ -436,12 +500,14 @@ html::-webkit-scrollbar {
 .blue-div-elem h4 {
     font-size: 1.8vw;
     font-weight: 500;
+    z-index: 3;
 }
 
 .blue-div-elem p {
     white-space: nowrap;
     width: 80%;
     font-size: 1vw;
+    z-index: 3;
 }
 
 #awwards{
@@ -452,6 +518,7 @@ html::-webkit-scrollbar {
     position: absolute;
     scale: 0;
     opacity: 0;
+    z-index: 1;
 }
 
 #FWA{
@@ -462,6 +529,7 @@ html::-webkit-scrollbar {
     position: absolute;
     transform: translate(-50% ,-50%);
     opacity: 0;
+    z-index: 1;
     scale: 0;
 }
 
@@ -472,6 +540,7 @@ html::-webkit-scrollbar {
     object-fit: cover;
     position: absolute;
     scale: 0;
+    z-index: 1;
     opacity: 0;
 }
 
@@ -483,6 +552,7 @@ html::-webkit-scrollbar {
     clip-path: circle(50% at 50% 50%);
     position: absolute;
     scale: 0;
+    z-index: 1;
     opacity: 0;
 }
 /* You always have to keep the position absolute for it to follow the mouse because you have to kee
@@ -496,12 +566,202 @@ it at a certainplace first */
     scale: 0;
     opacity: 0;
     clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+    z-index: 1;
 }
 
 
 #page5 {
+    padding-top: 7vw;
     height: 100vh;
     width: 100%;
     position: relative;
     background-color: #030303;
 }
+
+.elem {
+    white-space: nowrap;
+    overflow-x: hidden;
+    margin-bottom: -2vw;
+}
+
+.elem h1 {
+    font-size: 7vw;
+    -webkit-text-stroke: 1px #fff;
+    font-weight: 400;
+    text-transform: uppercase;
+    /* background-color: red; */
+    color: transparent;
+    display: inline-block;
+    margin-right: 16px;
+    -webkit-animation-name: anime;
+            animation-name: anime;
+    -webkit-animation-duration: 19s;
+            animation-duration: 19s;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes anime {
+    from {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+
+    to {
+        -webkit-transform: translateX(calc(-100% - 20px));
+                transform: translateX(calc(-100% - 20px));
+    }
+}
+
+@keyframes anime {
+    from {
+        -webkit-transform: translateX(0);
+                transform: translateX(0);
+    }
+
+    to {
+        -webkit-transform: translateX(calc(-100% - 20px));
+                transform: translateX(calc(-100% - 20px));
+    }
+}
+
+
+.elem2 {
+    white-space: nowrap;
+    overflow-x: hidden;
+    margin-bottom: -2vw;
+}
+
+.elem2 h1 {
+    font-size: 7vw;
+    -webkit-text-stroke: 1px #fff;
+    font-weight: 400;
+    text-transform: uppercase;
+    /* background-color: red; */
+    color: transparent;
+    display: inline-block;
+    -webkit-transform: translateX(calc(-100% - 20px));
+        -ms-transform: translateX(calc(-100% - 20px));
+            transform: translateX(calc(-100% - 20px));
+    -webkit-animation-name: anime;
+            animation-name: anime;
+    -webkit-animation-duration: 29s;
+            animation-duration: 21s;
+    -webkit-animation-timing-function: linear;
+            animation-timing-function: linear;
+    -webkit-animation-iteration-count: infinite;
+            animation-iteration-count: infinite;
+    animation-direction: reverse;
+}
+
+.elem span {
+    font-style: italic;
+    font-family: "silk serif";
+    color: transparent;
+}
+
+.elem2 span {
+    font-style: italic;
+    font-family: "silk serif";
+    color: transparent;
+}
+#footer {
+    padding-top: 3vw;
+    min-height: 86vh;
+    width: 100%;
+    background-color:#030303;
+    position: relative;
+    padding-left: 28vw;
+    margin-top: 5vw;
+    padding-right: 2vw;
+    overflow-y: hidden;
+}
+
+#footer h1 {
+    font-size: 7.2vw;
+    font-weight: 500;
+    text-transform: uppercase;
+    /* background-color: blue; */
+    position: relative;
+}
+
+#footer-text {
+    position: relative;
+    /* background-color: red; */
+}
+
+#footer-text h2 {
+    font-size: 7.2vw;
+    text-transform: uppercase;
+    position: absolute;
+    top: -10%;
+    font-weight: 500;
+
+    left: 0;
+    font-family: "silk serif";
+}
+
+#footer-text h2 span {
+    font-family: "silk serif";
+    opacity: 0;
+    -webkit-text-stroke: 1px #fff;
+    color: transparent;
+}
+
+#footer-text::before {
+    content: "04";
+    position: absolute;
+    font-size: 3vw;
+    font-weight: 100;
+    font-family: "silk serif";
+    left: -13%;
+    top: 6%;
+}
+
+.underline {
+    height: 1px;
+    width: 100%;
+    background-color: #fff;
+    margin: 3vw 0;
+}
+
+#footer-div {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding-right: 15vw;
+    padding-top: 4vw;
+    margin-bottom: 6vw;
+}
+
+#footer-div h6 {
+    font-size: 0.9vw;
+    margin-bottom: 1.5vw;
+    font-weight: 500;
+}
+
+.box {
+    width: 20%;
+}
+
+#footer-div h5 {
+    font-size: 1.4vw;
+    font-weight: 500;
+    /* margin: 0.1vh 0; */
+}
+
+#footer > h5 {
+    font-weight: 500;
+    font-size: 1vw;
+}
+
+
+
