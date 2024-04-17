@@ -298,7 +298,7 @@ function imageAnime() {
         })
     })
 }
-function sheryAnimation(){
+function gooeyAnimation(){
     Shery.imageEffect(".image-div" , {
         style:5,
         // debug:true,
@@ -309,7 +309,7 @@ function sheryAnimation(){
 
 
 
-sheryAnimation();
+gooeyAnimation();
 locomotiveAnimation();
 imageAnime();
 cursorAnime();
