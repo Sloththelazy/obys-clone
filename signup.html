@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">
+    <link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+    <title>Sign Up</title>
+</head>
+<body>
+    <!-- <img src="assets/lakeside-sunrise-early-morning-minimal-art-gradient-7680x3215-4587.png" alt="">  -->
+    <div class="wrapper">
+        <form action="" id="signupForm">
+            <h1>Sign Up !</h1>
+            <div class="input-box">
+                <input type="text" placeholder="Name" id="name" required>
+            </div>
+            <div class="input-box">
+                <input type="text" placeholder="Email" id="email" required>
+            </div>
+            <div class="input-box">
+                <input type="text" placeholder="Username" id = "username" required>
+                <i class="ri-user-fill"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Password" id="password" required>
+                <i class="ri-lock-star-fill"></i>
+            </div>
+            <div class="input-box">
+                <input type="password" placeholder="Confirm-Password" id="Confirm-Password" required>
+                <i class="ri-lock-star-fill"></i>
+            </div>
+            <button type="submit"  class="btn">Submit</button>
+            <div class="Sign-In">
+                <p>Have an account ? <a href="signin.html" target="_parent">Sign In</a></p>
+            </div>
+        </form>
+    </div>
+    <script> 
+    document.getElementById("signupForm").addEventListener("submit", function(event) {
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("email").value;
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("Confirm-Password").value;
+
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            var isValid = true;
+
+            if (!emailRegex.test(email)) {
+                alert("Please enter a valid email address");
+                isValid = false;
+            }
+
+            if (password.length < 8) {
+                alert("Password must be at least 8 characters long");
+                isValid = false;
+            }
+
+            if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(password)) {
+                alert("Password must contain at least one special character");
+                isValid = false;
+            }
+
+            if (!/\d/.test(password)) {
+                alert("Password must contain at least one number");
+                isValid = false;
+            }
+
+            if (password !== confirmPassword) {
+                alert("Passwords do not match");
+                isValid = false;
+            }
+
+            if (!isValid) {
+                event.preventDefault(); // Prevent form submission
+            }
+        })
+    </script>
+
+</body>
+</html>

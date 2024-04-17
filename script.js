@@ -36,8 +36,7 @@ function locomotiveAnimation() {
   
     // after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
     ScrollTrigger.refresh();
-  }
-
+}
 function loadingAnimation() {
 var tl = gsap.timeline();
 tl.from (".line h1 , .line-h2 " , {
@@ -88,15 +87,33 @@ tl.to ("#loader" , {
     display: "none"
 })
 tl.from("#nav" , {
+    y:140,
     opacity:0,
     ease:'power2.out'
-
+    // y:150 ,
+    // stagger: 0.35,
+    // duration: 0.8,
+    // ease:'power2.out',
+    // delay: 0.35
 })
 tl.from("#hero1 h1 ,#hero2 h1 ,#hero3 h2,#hero4 h1", {
-    y:150 ,
+    y:140 ,
     stagger: 0.1,
-    ease:'power2.out'
+    ease:'power4.out'
+    // y:150 ,
+    // stagger: 0.35,
+    // duration: 0.8,
+    // ease:'power2.out',
+    // // delay: 0.35
 })
+
+tl.from(
+    "#hero1, #page2",
+    {
+      opacity: 0,
+    },
+    "-=1.1"
+  );
 
 // disabling the cursor for the loader 
 const yourDiv = document.getElementById("loader");
@@ -108,7 +125,6 @@ yourDiv.addEventListener('mouseleave', () => {
   yourDiv.style.cursor = 'auto';
 });
 }
-
 function cursorAnime() {
     //Cumbunto Animation
     var frames = document.querySelectorAll(".frame") 
@@ -183,6 +199,38 @@ function cursorAnime() {
     })
 
     var page4 = document.querySelector("#page4")
+    var page3 = document.querySelector("#page3")
+    var page2 = document.querySelector('#page2')
+
+    page2.addEventListener("mouseenter" , function() {
+        gsap.to("#crsr" , { // mouse enter and leave animation
+            scale: 0 ,
+            opacity: 0
+        })
+    })
+    page2.addEventListener("mouseleave" , function() {
+        gsap.to("#crsr" , { // mouse leave animation (this is a problem in the website the mosue seems stuck when we leave the window)
+            scale: 1,
+            opacity:1
+        })
+    })
+
+    page3.addEventListener("mouseenter" , function() {
+        gsap.to("#crsr" , { // mouse enter and leave animation
+            scale: 0 ,
+            opacity: 0
+        })
+    })
+    page3.addEventListener("mouseleave" , function() {
+        gsap.to("#crsr" , { // mouse leave animation (this is a problem in the website the mosue seems stuck when we leave the window)
+            scale: 1,
+            opacity:1
+        })
+    })
+
+
+
+
     page4.addEventListener("mouseenter" , function() {
         gsap.to("#crsr" , { // mouse enter and leave animation
             scale: 0 ,
@@ -195,14 +243,32 @@ function cursorAnime() {
             opacity:1
         })
     })
+
+    //video cursor
+    var videoContainer = document.querySelector("#video-container")
+    videoContainer.addEventListener("mouseenter" , function (){
+        videoContainer.addEventListener("mousemove" , function(dets){
+            gsap.to("#video-cursor" , {
+                left:dets.x-570,
+                top:dets.y-300,
+            })
+        })
+    })
+    videoContainer.addEventListener("mouseleave" , function(){
+        gsap.to("#video-cursor" , {
+            left:"70%",
+            top:"-15%"
+        })
+    })
 }
- function imageAnime() {
+function imageAnime() {
     var Elem = document.querySelectorAll(".blue-div-elem"); // gives us a node list
     var imgElem = document.querySelectorAll(".blue-div-elem img");
 
     Elem.forEach(function(elem){
         elem.addEventListener("mouseenter" , function(){
-            // console.log(elem.childNodes) i used this to find the index of image in the nodelist
+            console.log(elem.childNodes) 
+            // i used this to find the index of image in the nodelist
             
             gsap.to(elem.childNodes[5] , {
                 opacity: 1,
@@ -231,7 +297,19 @@ function cursorAnime() {
             })
         })
     })
- }
+}
+function sheryAnimation(){
+    Shery.imageEffect(".image-div" , {
+        style:5,
+        // debug:true,
+        config:{"a":{"value":0.45,"range":[0,30]},"b":{"value":0.75,"range":[-1,1]},"zindex":{"value":-9996999,"range":[-9999999,9999999]},"aspect":{"value":0.6857083080101598},"ignoreShapeAspect":{"value":true},"shapePosition":{"value":{"x":0,"y":0}},"shapeScale":{"value":{"x":0.5,"y":0.5}},"shapeEdgeSoftness":{"value":0,"range":[0,0.5]},"shapeRadius":{"value":0,"range":[0,2]},"currentScroll":{"value":0},"scrollLerp":{"value":0.07},"gooey":{"value":true},"infiniteGooey":{"value":true},"growSize":{"value":4,"range":[1,15]},"durationOut":{"value":1,"range":[0.1,5]},"durationIn":{"value":1.5,"range":[0.1,5]},"displaceAmount":{"value":0.5},"masker":{"value":true},"maskVal":{"value":1.2,"range":[1,5]},"scrollType":{"value":0},"geoVertex":{"range":[1,64],"value":1},"noEffectGooey":{"value":true},"onMouse":{"value":1},"noise_speed":{"value":1.15,"range":[0,10]},"metaball":{"value":0.52,"range":[0,2]},"discard_threshold":{"value":0.5,"range":[0,1]},"antialias_threshold":{"value":0,"range":[0,0.1]},"noise_height":{"value":0.5,"range":[0,2]},"noise_scale":{"value":10,"range":[0,100]}},
+        gooey:true
+    })
+}
+
+
+
+sheryAnimation();
 locomotiveAnimation();
 imageAnime();
 cursorAnime();
